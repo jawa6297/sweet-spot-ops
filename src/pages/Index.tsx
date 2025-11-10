@@ -2,8 +2,21 @@ import { motion } from "framer-motion";
 import { MapPin, Users, ClipboardList, TrendingUp, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/lib/auth";
 
 const Index = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleGetStarted = () => {
+    if (user) {
+      navigate("/dashboard");
+    } else {
+      navigate("/auth");
+    }
+  };
+
   const features = [
     {
       icon: MapPin,
@@ -52,12 +65,12 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
-                Get Started
+              <Button size="lg" className="text-lg px-8" onClick={handleGetStarted}>
+                {user ? "Go to Dashboard" : "Get Started"}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8">
-                View Demo
+              <Button size="lg" variant="outline" className="text-lg px-8" onClick={handleGetStarted}>
+                {user ? "View Dashboard" : "Sign In"}
               </Button>
             </div>
           </motion.div>
@@ -160,8 +173,8 @@ const Index = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join modern food businesses using smart technology to grow efficiently
           </p>
-          <Button size="lg" className="text-lg px-8">
-            Start Free Trial
+          <Button size="lg" className="text-lg px-8" onClick={handleGetStarted}>
+            {user ? "Go to Dashboard" : "Start Free Trial"}
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
