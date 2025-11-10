@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
+import Attendance from "./pages/Attendance";
 import Tasks from "./pages/Tasks";
 import Analytics from "./pages/Analytics";
 import Branches from "./pages/Branches";
@@ -39,6 +40,14 @@ const App = () => (
               element={
                 <AppLayout>
                   <Employees />
+                </AppLayout>
+              }
+            />
+            <Route
+              path="/attendance"
+              element={
+                <AppLayout>
+                  <Attendance />
                 </AppLayout>
               }
             />

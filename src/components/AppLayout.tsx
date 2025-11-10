@@ -6,6 +6,7 @@ import {
   ClipboardList,
   BarChart3,
   Building2,
+  MapPin,
   LogOut,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
@@ -28,6 +29,7 @@ import { useAuth } from "@/lib/auth";
 const menuItems = [
   { title: "Dashboard", icon: LayoutDashboard, url: "/dashboard" },
   { title: "Employees", icon: Users, url: "/employees" },
+  { title: "Attendance", icon: MapPin, url: "/attendance" },
   { title: "Tasks", icon: ClipboardList, url: "/tasks" },
   { title: "Analytics", icon: BarChart3, url: "/analytics" },
   { title: "Branches", icon: Building2, url: "/branches" },
